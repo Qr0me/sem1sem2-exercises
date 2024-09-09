@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read TXT File</title>
+</head>
+<body>
+    <div class="main">
+        <input type="file" id="fileInput" />
+        <button onclick="readFile()">Read File</button>
+        <button onclick="writeToFile()">Write to File</button>
+        <textarea id="contentInput" placeholder="Write content here!"></textarea>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function readFile() {
+            const fileInput = document.getElementById('fileInput');
+            const output = document.getElementById('output');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const content = e.target.result;
+                    output.textContent = content;
+                };
+
+                reader.readAsText(file);
+            } else {
+                output.textContent = 'Please upload a file';
+            }
+        }
+
+        function writeToFile() {
+            const fileInput = document.getElementById('fileInput');
+            const contentInput = document.getElementById('contentInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const originalContent = e.target.result;
+
+                    const newContent = contentInput.value;
+
+                    const combinedContent = `${originalContent}${newContent}`;
+
+                    const combinedBlob = new Blob([combinedContent], { type: file.type });
+
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = URL.createObjectURL(combinedBlob);
+                    downloadLink.download = 'modified_' + file.name;
+                    downloadLink.click();
+                };
+
+                reader.readAsText(file);
+            } else {
+                alert('Please upload a file');
+            }
+        }
+    </script>
+
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 500px;
+            margin: auto;
+        }
+
+        button, input{
+            width: 50%;
+            height: 10%;
+            margin: 2% auto;
+        }
+
+        textarea{
+            width: 50%;
+            height: 20%;
+            margin: 2% auto;
+            resize: none;
+        }
+
+        p{
+            width: 90%;
+            word-break: break-all;
+            margin: 2% auto;
+        }
+
+    </style>
+</body>
+</html>

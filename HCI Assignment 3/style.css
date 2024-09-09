@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+    font-family: 'montserrat', 'sans-serif';
+    color:#292929;
+}
+
+#top {
+    margin: 3%;
+    border: 3px solid #292929;
+}
+
+.pfp {
+    display:block;
+    width: 13vw;
+
+}
+
+.title {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.id {
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align: center;
+}
+
+.top {
+    margin-left: 50%;
+}
+
+.content {
+    display:flex;
+    justify-content: center;
+        
+}
+
+.socials {
+    color: #292929;
+    margin: 5%;
+    margin-top: 6.5%;
+}
+

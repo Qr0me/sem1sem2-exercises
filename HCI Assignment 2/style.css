@@ -1,0 +1,15 @@
+html {
+    box-sizing: border-box;
+    font-family: 'montserrat', 'sans-serif';
+    color:white;
+}
+
+.title {
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 144;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+    background-color: #2E294E;
+    
+}
